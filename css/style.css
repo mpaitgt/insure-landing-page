@@ -148,7 +148,7 @@ button.white-btn:hover {
   margin-top: 4rem;
   width: 500px;
   justify-self: center;
-  margin-left: 2rem;
+  align-self: center;
 }
 
 .content {
@@ -212,6 +212,10 @@ div.violet-border {
 .footer-header {
   padding: 0px 24px;
   margin-bottom: 1rem;
+}
+
+.social-icon:hover {
+  fill: var(--dark-violet);
 }
 
 .footer-nav {
