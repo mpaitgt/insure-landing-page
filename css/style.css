@@ -8,7 +8,7 @@
   /* Neutral */
   --very-dark-violet: hsl(270, 9%, 17%);
   --dark-grayish-violet: hsl(273, 4%, 51%);
-  --very-light-gray: hsl(0, 0%, 93%);
+  --very-light-gray: hsl(0, 0%, 98%);
   --white: #fff;
 }
 
@@ -17,15 +17,17 @@ body {
   font-size: 15px;
   line-height: 25px;
   width: auto;
-  margin: 0
+  margin: 0;
+  position: relative;
 }
 
 nav {
-  padding: 0rem 6rem;
+  padding: 0rem 9rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  z-index: 999;
 }
 
 ul {
@@ -39,7 +41,7 @@ nav ul {
 }
 
 ul li {
-  padding: 0px 24px;
+  padding: 0px 0px;
   font-size: 13px;
   cursor: pointer;
 }
@@ -87,6 +89,19 @@ button.white-btn:hover {
   color: var(--very-dark-violet);
 }
 
+.burger {
+  display: none;
+}
+
+.line1, .line2, .line3 {
+  height: 3px;
+  width: 32px;
+  background: var(--very-dark-violet);
+  margin: 3px;
+  border-radius: 20px;
+
+}
+ 
 .full-width {
   width: 100%;
   margin: 0 auto;
@@ -107,6 +122,7 @@ button.white-btn:hover {
   top: 0;
   right: 0;
   height: 400px;
+  z-index: 0;
 }
 
 .violet-section {
@@ -120,12 +136,22 @@ button.white-btn:hover {
   color: var(--dark-violet);
 }
 
+.nav-link {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .section-one {
-  height: 500px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
-  position: relative;
+  max-height: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-one p {
+  font-size: 16px;
 }
 
 .section-two {
@@ -145,10 +171,8 @@ button.white-btn:hover {
 }
 
 #intro-image {
-  margin-top: 4rem;
-  width: 500px;
-  justify-self: center;
-  align-self: center;
+  width: 80%;
+  margin: 2rem;
 }
 
 .content {
@@ -204,14 +228,28 @@ div.violet-border {
   margin-bottom: 20px;
 }
 
-.footer {
-  padding: 3rem;
-  background: var(--very-light-gray);
+footer {
+  padding: 1rem 10rem;
+  position: relative;
+}
+
+.footer-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+footer.content {
+  z-index: 999;
 }
 
 .footer-header {
-  padding: 0px 24px;
   margin-bottom: 1rem;
+}
+
+svg {
+  margin: 0px 5px;
 }
 
 .social-icon:hover {
@@ -221,13 +259,149 @@ div.violet-border {
 .footer-nav {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 4rem 2rem;
-  margin: 0 auto;
-  width: auto;
+  padding: 4rem 0rem;
   border-top: 1px solid var(--grayish-blue);
   margin-top: 1rem;
 }
 
-footer {
-  padding: 1rem 10rem;
+.footer {
+  padding: 3rem 0rem;
+  background: var(--very-light-gray);
+}
+
+@media screen and (max-width: 860px) {
+  body {
+    text-align: center;
+  }
+
+  nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  section {
+    padding: 0;
+  }
+
+  .section-one {
+    grid-template-columns: 1fr;
+  }
+
+  .section-one .content {
+    width: 100%;
+  }
+
+  #intro-image {
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .white-border {
+    display: none;
+  }
+
+  .violet-border {
+    margin: 0 auto;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .features h2 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .icon {
+    padding: 0;
+    margin: 0;
+  }
+
+  .header {
+    font-size: 52px;
+  }
+
+  .section-three {
+    grid-template-columns: 1fr;
+  }
+
+  footer nav {
+    flex-direction: column;
+  }
+
+  .footer-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-nav h4 {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 546px) {
+  .burger {
+    height: 50px;
+    width: 50px;
+    display: block;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .burger:hover {
+    background: #f1f1f1;
+  }
+
+  nav img {
+    z-index: 999;
+  }
+
+  .menu-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 16vh;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in;
+    background: var(--white);
+    z-index: 0;
+    opacity: 0;
+  }
+
+  .nav-links {
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .section-one {
+    transition: all 0.3s ease-in;
+  }
+
+  .nav-active {
+    transform: translateY(0%);
+    animation-name: opacity-on;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+  .section-one-nav-active {
+    margin-top: 10vh;
+    transition: all 0.3s ease-in;
+  }
+}
+
+@keyframes opacity-on {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
 }
